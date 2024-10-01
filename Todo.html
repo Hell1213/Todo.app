@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Todo List</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete {
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+.delete:hover {
+  background-color: #d32d1e;
+}
+.done {
+  text-decoration: line-through;
+  color: #ccc;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Todo List</h1>
+  <input type="text" id="newTodo" placeholder="Add new todo...">
+  <button onclick="addTodo()">Add Todo</button>
+  <ul id="todoList"></ul>
+</div>
+
+<script>
+const todoList = document.getElementById("todoList");
+const newTodoInput = document.getElementById("newTodo");
+
+function addTodo() {
+  const todoText = newTodoInput.value.trim();
+
+  if (todoText !== "") {
+    const newTodo = document.createElement("li");
+    newTodo.innerHTML = `
+      <span>${todoText}</span>
+      <button class="done-btn" onclick="markDone(this)">Done</button>
+      <button class="delete" onclick="deleteTodo(this)">Delete</button>
+    `;
+    todoList.appendChild(newTodo);
+    newTodoInput.value = ""; 
+  }
+}
+
+function deleteTodo(button) {
+  const listItem = button.parentNode;
+  listItem.remove();
+}
+
+function markDone(button) {
+  const listItem = button.parentNode;
+  const todoText = listItem.querySelector("span");
+  todoText.classList.add("done");
+  button.style.display = "none";
+}
+</script>
+</body>
+</html>
