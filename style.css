@@ -1,6 +1,6 @@
-
 body {
   font-family: sans-serif;
+  background-color: rgb(54, 53, 53);
 }
 .container {
   width: 400px;
@@ -9,7 +9,7 @@ body {
   border: 3px solid #ccc;
   border-radius: 8px;
   border-color: black;
-  background-color:rgb(236, 165, 165);
+  background-color: rgb(236, 165, 165);
 }
 h1 {
   text-align: center;
@@ -22,10 +22,9 @@ input[type="text"] {
   border-radius: 5px;
   box-sizing: border-box;
   margin-bottom: 10px;
- 
 }
 button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -46,7 +45,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 li span {
